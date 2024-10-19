@@ -1,6 +1,6 @@
 import java.util.Scanner;
 import java.util.Arrays;
-import java.util.Random;
+
 
 public class Main {
 
@@ -79,6 +79,71 @@ public class Main {
                 case 5:
                     System.out.println("введите размер массива");
                     size = in.nextInt();
+                    int[] mas = new int[size];
+                    System.out.println("Введите элементы массива");
+                    for(int i = 0; i < size; ++i)
+                    {
+                        mas[i] = in.nextInt();
+                    }
+                    System.out.println("Введите target");
+                    int target = in.nextInt();
+                    int[] res = task5(mas, target);
+                    System.out.println(Arrays.toString(res));
+                    break;
+                case 6:
+                    System.out.println("Введите количество строк и столбцов для двумероного массива n x s: (заполняется он по принципу [i][j] = i + j)");
+                    n1 = in.nextInt();
+                    in.nextLine();
+                    n2 = in.nextInt();
+                    int[][] matr = new int[n1][n2];
+                    for(int i = 0; i < n1; ++i)
+                    {
+                        for(int j = 0; j < n2; ++j)
+                        {
+                            matr[i][j] = i + j;
+                        }
+                    }
+                    System.out.println(task6(matr));
+                    break;
+                case 7:
+                    System.out.println("Введите количество строк и столбцов для двумероного массива n x s: (заполняется он по принципу [i][j] = i + j)");
+                    n1 = in.nextInt();
+                    in.nextLine();
+                    n2 = in.nextInt();
+                    int[][] matri = new int[n1][n2];
+                    for(int i = 0; i < n1; ++i)
+                    {
+                        for(int j = 0; j < n2; ++j)
+                        {
+                            matri[i][j] = i + j;
+                        }
+                    }
+                    System.out.println(Arrays.toString(task7(matri)));
+                    break;
+                case 8:
+                    System.out.println("Введите количество строк и столбцов для двумероного массива n x s:");
+                    n1 = in.nextInt();
+                    in.nextLine();
+                    n2 = in.nextInt();
+                    int[][] ma = new int[n1][n2];
+                    for(int i = 0; i < n1; ++i)
+                    {
+                        for(int j = 0; j < n2; ++j)
+                        {
+                            ma[i][j] = i;
+                        }
+                    }
+
+                    int[][] mass = task8(ma);
+                    for(int i = 0; i < ma.length; ++i)
+                    {
+                        System.out.println(Arrays.toString(ma[i]));
+                    }
+                    for(int i = 0; i < mass.length; ++i)
+                    {
+                        System.out.println(Arrays.toString(mass[i]));
+                    }
+                    break;
                 case 0:
                     start = false;
                     break;
@@ -165,5 +230,69 @@ public class Main {
         return rotated;
     }
 
+    public static int[] task5(int[] a, int tar) {
+        int[] res = new int[2];
+        int n = a.length;
+        for(int i = 0; i < n - 1; ++i)
+        {
+            for(int j = i + 1; j < n; ++j)
+            {
+                if(a[i] + a[j] == tar)
+                {
+                    res[0] = a[i];
+                    res[1] = a[j];
+                    return res;
+                }
+            }
+        }
+        return null;
+    }
 
+    public static int task6(int[][] mas) {
+        int s = mas.length;
+        int n = mas[0].length;
+        int sum = 0;
+        for(int i = 0; i < s; ++i)
+        {
+            for(int j = 0; j < n; ++j)
+            {
+                sum += mas[i][j];
+            }
+        }
+        return sum;
+    }
+
+    public static int[] task7(int[][] mas){
+        int s = mas.length;
+        int n = mas[0].length;
+        int[] maxes = new int[s];
+        for (int i = 0; i < s; i++)
+        {
+            maxes[i] = mas[i][0];
+            for (int j = 0; j < n; j++)
+            {
+                if (mas[i][j] > maxes[i])
+                {
+                    maxes[i] = mas[i][j];
+                }
+            }
+        }
+        return maxes;
+
+    }
+
+    public static int[][] task8(int[][] mas) {
+        int s = mas.length;
+        int n = mas[0].length;
+        int[][] rotMas = new int[n][s];
+        for (int i = 0; i < s; ++i)
+        {
+            for (int j = 0; j < n; ++j)
+            {
+                rotMas[n - j - 1][i] = mas[i][j];
+            }
+        }
+
+        return rotMas;
+    }
 }
