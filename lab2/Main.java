@@ -52,6 +52,33 @@ public class Main {
                     }
                     System.out.println(task3(s));
                     break;
+                case 4:
+                    System.out.println("Введите количество строк и столбцов для двумероного массива n x s:");
+                    int n1 = in.nextInt();
+                    in.nextLine();
+                    int n2 = in.nextInt();
+                    int[][] mat = new int[n1][n2];
+                    for(int i = 0; i < n1; ++i)
+                    {
+                        for(int j = 0; j < n2; ++j)
+                        {
+                            mat[i][j] = i;
+                        }
+                    }
+
+                    int[][] matrix = task4(mat);
+                    for(int i = 0; i < mat.length; ++i)
+                    {
+                        System.out.println(Arrays.toString(mat[i]));
+                    }
+                    for(int i = 0; i < matrix.length; ++i)
+                    {
+                        System.out.println(Arrays.toString(matrix[i]));
+                    }
+                    break;
+                case 5:
+                    System.out.println("введите размер массива");
+                    size = in.nextInt();
                 case 0:
                     start = false;
                     break;
@@ -123,4 +150,20 @@ public class Main {
         }
         return maxSum;
     }
+
+    public static int[][] task4(int[][] matrix) {
+        int n1 = matrix.length;
+        int n2 = matrix[0].length;
+        int[][] rotated = new int[n2][n1];
+
+        for (int i = 0; i < n1; i++) {
+            for (int j = 0; j < n2; j++) {
+                rotated[j][n1 - 1 - i] = matrix[i][j];
+            }
+        }
+
+        return rotated;
+    }
+
+
 }
