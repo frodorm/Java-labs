@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="org.example.labainfinity.TableViewController"
+      spacing="20" alignment="CENTER" styleClass="root-container">
+
+    <!-- Заголовок -->
+    <Label text="Book List" styleClass="header-label"/>
+
+    <!-- Таблица -->
+    <TableView fx:id="tableView" styleClass="custom-table">
+        <columns>
+            <TableColumn fx:id="nameColumn" text="Name"/>
+            <TableColumn fx:id="ageColumn" text="Age"/>
+            <TableColumn fx:id="authorColumn" text="author"/>
+            <TableColumn fx:id="genreColumn" text="genre"/>
+
+        </columns>
+    </TableView>
+</VBox>

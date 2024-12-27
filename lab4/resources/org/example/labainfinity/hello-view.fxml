@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="org.example.labainfinity.HelloController"
+      spacing="15" alignment="CENTER" styleClass="root-container">
+
+    <!-- Заголовок -->
+    <Label text="Book Manager" styleClass="header-label"/>
+
+    <!-- Поля ввода -->
+    <TextField fx:id="nameField" promptText="Enter Name" styleClass="input-field"/>
+    <TextField fx:id="ageField" promptText="Enter Age" styleClass="input-field"/>
+    <TextField fx:id="authorField" promptText="Enter author" styleClass="input-field"/>
+    <TextField fx:id="genreField" promptText="Enter genre" styleClass="input-field"/>
+
+    <!-- Кнопки -->
+    <HBox spacing="10" alignment="CENTER">
+        <Button fx:id="addButton" text="Add Book" onAction="#addBook" styleClass="action-button"/>
+        <Button fx:id="showTableButton" text="Show Books" onAction="#showTable" styleClass="action-button"/>
+        <Button fx:id="clearButton" text="Clear All Data" onAction="#clearData" styleClass="action-button"/>
+
+    </HBox>
+</VBox>
+
